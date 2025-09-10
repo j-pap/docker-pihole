@@ -27,7 +27,7 @@ Just make sure to keep the naming conventions:
 services:
   pihole:
     container_name: pihole
-    image: ghcr.io/j-pap/docker-pi-hole:latest
+    image: ghcr.io/j-pap/pihole:latest
     hostname: pihole
     ports:
       # DNS Ports
@@ -98,5 +98,5 @@ docker run
   -v './pihole/etc-dnsmasq.d':'/etc/dnsmasq.d':'rw'
   --hostname=pihole
   --restart=unless-stopped
-  --cap-add=SYS_NICE 'ghcr.io/j-pap/docker-pi-hole:latest'
+  --cap-add=SYS_NICE 'ghcr.io/j-pap/pihole:latest'
 ```
