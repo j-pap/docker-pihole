@@ -28,7 +28,7 @@ services:
   pihole:
     container_name: pihole
     image: ghcr.io/j-pap/pihole:latest
-    hostname: pihole
+    hostname: pihole-backup
     ports:
       # DNS Ports
       - "53:53/tcp"
@@ -80,7 +80,7 @@ services:
 docker run
   --name='pihole'
   --net='br0'
-  --ip='192.168.0.2'
+  --ip='192.168.0.12'
   -e TZ="Europe/London"
   -e 'TCP_PORT_80'='80'
   -e 'TCP_PORT_443'='443'
@@ -96,7 +96,7 @@ docker run
   -v './pihole/etc-pihole':'/etc/pihole':'rw'
   -v './pihole/configs':'/configs':'rw'
   -v './pihole/etc-dnsmasq.d':'/etc/dnsmasq.d':'rw'
-  --hostname=pihole
+  --hostname=pihole-backup
   --restart=unless-stopped
   --cap-add=SYS_NICE 'ghcr.io/j-pap/pihole:latest'
 ```
